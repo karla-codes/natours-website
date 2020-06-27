@@ -57,6 +57,9 @@ header {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* determines if the back part of an element is visible or not, fixes shaking in animation */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -64,6 +67,16 @@ header {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* the only two properties needed to add animation (keyframe must be created first) */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /*
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+  */
 }
 
 .heading-primary-sub {
@@ -71,4 +84,47 @@ header {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* short hand for animation properties */
+  animation: moveInRight 1s ease-out;
+}
+
+/* main header text animation */
+@keyframes moveInLeft {
+
+  /* start of animation */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* end of animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* sub header text animation */
+@keyframes moveInRight {
+
+  /* start of animation */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* end of animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }

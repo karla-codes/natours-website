@@ -1,0 +1,18 @@
+/* Simple reset using the universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* this makes all elements on the page inherit the box-sizing property defined in the body element */
+  box-sizing: inherit;
+}
+
+html {
+  /* it's bad practice to us px as the base font measurement, instead use percantage that = 10px */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
